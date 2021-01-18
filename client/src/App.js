@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import LoginForm from "./LoginForm";
 import Login from "./Login";
+import Logout from "./Logout";
 import Register from "./Register";
+import Home from "./Home";
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 class App extends React.Component {
@@ -14,6 +15,12 @@ class App extends React.Component {
           </Route>
           <Route path="/register">
             <Register />
+          </Route>
+          <Route path="/logout">
+            <Logout />
+          </Route>
+          <Route strict path="/">
+            <Home />
           </Route>
         </Switch>
       </BrowserRouter>

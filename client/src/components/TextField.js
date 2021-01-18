@@ -2,6 +2,8 @@ import styled from "styled-components";
 import React from "react";
 import * as colors from "../colors";
 
+//reusable text-field component.
+
 const StyledInput = styled.input`
   background: #ffffff;
   border: 1px solid #e0e0e0;

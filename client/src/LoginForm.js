@@ -2,6 +2,8 @@ import styled from "styled-components";
 import React from "react";
 import * as EmailValidator from "email-validator";
 import TextField from "./components/TextField";
+import axios from "axios";
+import { Route, withRouter } from "react-router-dom";
 
 const StyledForm = styled.form``;
 const ButtonWrapper = styled.div`
@@ -45,7 +47,8 @@ class LoginForm extends React.Component {
 
     this.handleChangePassword = this.handleChangePassword.bind(this);
 
-    this.disableButton = this.disableButton.bind(this);
+    this.formIsValid = this.formIsValid.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChangeEmail(event) {
@@ -56,20 +59,39 @@ class LoginForm extends React.Component {
     this.setState({ password: event.target.value });
   }
 
-  disableButton() {
+  formIsValid() {
     if (
       EmailValidator.validate(this.state.email) &&
       this.state.password != ""
     ) {
-      return false;
-    } else {
       return true;
+    } else {
+      return false;
+    }
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    if (this.formIsValid()) {
+      console.log("Submitting Login Deets");
+      axios
+        .post("/login", {
+          email: this.state.email,
+          password: this.state.password,
+        })
+        .then((response) => {
+          console.log(response);
+          this.props.history.push("/");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   }
 
   render() {
     return (
-      <StyledForm>
+      <StyledForm onSubmit={this.handleSubmit}>
         <TextField
           fieldId="email"
           placeholder="your@email.ca"
@@ -86,11 +108,11 @@ class LoginForm extends React.Component {
           handleChange={this.handleChangePassword}
         ></TextField>
         <ButtonWrapper>
-          <StyledButton disabled={this.disableButton()}>Sign In</StyledButton>
+          <StyledButton disabled={!this.formIsValid()}>Sign In</StyledButton>
         </ButtonWrapper>
       </StyledForm>
     );
   }
 }
 
-export default LoginForm;
+export default withRouter(LoginForm);

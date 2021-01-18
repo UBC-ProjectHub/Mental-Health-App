@@ -1,4 +1,5 @@
 import express from "express";
+import session from "express-session";
 import bodyParser from "body-parser";
 import db from "./sequelize/models/index.cjs";
 import bcrypt from "bcrypt";
@@ -7,9 +8,7 @@ import LocalStrategy from "passport-local";
 
 const app = express();
 const port = process.env.PORT || 5000;
-
 const saltRounds = 12;
-
 //enables passport to verify user and password
 passport.use(
   new LocalStrategy(
@@ -32,6 +31,7 @@ passport.use(
           } else {
             bcrypt.compare(password, user.password, (err, result) => {
               if (result == true) {
+                console.log("successfully logged in");
                 return done(null, user);
               } else {
                 return done(null, false, {
@@ -45,8 +45,41 @@ passport.use(
   )
 );
 
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+passport.deserializeUser((id, done) => {
+  db["User"]
+    .findOne({
+      where: {
+        id: id,
+      },
+    })
+    .then((user) => {
+      done(null, user);
+    })
+    .catch((err) => {
+      done(err, null);
+    });
+});
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.set("trust proxy", 1);
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      secure: false,
+      maxAge: 1000 * 60 * 60 * 24,
+    },
+  })
+);
+
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -65,29 +98,6 @@ const createUser = async ({ firstName, lastName, email, password }) => {
   return await db["User"].create({ firstName, lastName, email, password });
 };
 
-//confirms user exists and password is correct
-const findUserWithPassword = async (userEmail, password) => {
-  return await db["User"]
-    .findOne({
-      where: {
-        email: userEmail,
-      },
-    })
-    .then((user) => {
-      if (!user) {
-        console.log("No user with this email");
-      } else {
-        bcrypt.compare(password, user.password, (err, result) => {
-          if (result == true) {
-            res.send("Success");
-          } else {
-            res.send("Incorrect password");
-          }
-        });
-      }
-    });
-};
-
 app.get("/users", (req, res) => {
   getAllUsers().then((user) => res.send(user));
 });
@@ -103,24 +113,33 @@ app.post("/user/create", (req, res, next) => {
   });
 });
 
-//user is logged in
-app.post(
-  "/login",
-  passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/login",
-  })
-);
-
-//user is logged out
-app.get("/logout", function (req, res) {
-  req.logout();
-  res.redirect("/login");
+app.post("/login", (req, res, next) => {
+  passport.authenticate("local", (err, user, info) => {
+    if (info) {
+      return res.send(info.message);
+    }
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      return res.redirect("/login");
+    }
+    req.login(user, (err) => {
+      if (err) {
+        return next(err);
+      }
+      return res.redirect("/me");
+    });
+  })(req, res, next);
 });
 
-// app.post("/user", (req, res) => {
-//   const { email, password } = req.body;
-//   findUserWithPassword(email, password);
-// });
+app.get("/me", (req, res) => {
+  console.log(req.user);
+  res.send(req.user);
+});
+
+app.get("/logout", function (req, res) {
+  req.logout();
+});
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
