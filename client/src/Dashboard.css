@@ -1,0 +1,140 @@
+.grid-container {
+    height: 100vh;
+    margin: 0;
+    overflow: scroll;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr 1fr 1fr 1fr 1fr 2.5fr 0.3fr;
+    grid-template-rows: 0.8fr 0.6fr 0.2fr 0.6fr 1.2fr 0.5fr 0.5fr 3.5fr 0.7fr 0.6fr;
+    gap: 0px 0px;
+}
+
+.Header {
+    grid-area: 1 / 1 / 2 / 8;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+.welcome-panel {
+    position: relative;
+    width: 170px;
+    height: 28px;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 0.05em;
+
+    color: #848496;
+}
+
+.Sidebar {
+    grid-area: 2 / 1 / 11 / 2;
+}
+
+.padding {
+    grid-area: 3 / 2 / 4 / 8;
+}
+
+.mood-prompt {
+    grid-area: 4 / 2 / 5 / 8;
+    color: #848496;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: 0.05em;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+span.italic {
+    font-style: italic;
+    color: #848496;
+    font-weight: 200;
+}
+
+.padding2 {
+    grid-area: 6 / 2 / 7 / 8;
+}
+
+.padding4 {
+    grid-area: 10 / 2 / 11 / 8;
+}
+
+.LogButtonArea {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.8fr 1.4fr 0.8fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        "."
+        "LogButtonPanel"
+        ".";
+    grid-area: LogButtonArea;
+}
+
+.LogButtonPanel {
+    grid-area: LogButtonPanel;
+}
+
+.tracking-panel {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1.2fr 0.2fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        "TrackingPanel"
+        "TrackingPanelPadding";
+    grid-area: 8 / 6 / 9 / 8;
+    margin-left: 15px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+}
+
+.padding3 {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        ".";
+    grid-area: "TrackingPanelPadding";
+}
+
+.SideBarMenu {
+    display: grid;
+    grid-template-columns: 0.5fr 0.6fr 1.9fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        ". . ."
+        ". . ."
+        ". . ."
+        ". . ."
+        ". . ."
+        ". . .";
+    grid-area: 4 / 1 / 8 / 2;
+}
+
+.RightPadding {
+    grid-area: 1 / 8 / 11 / 9;
+}
+
+/* 
+For presentation only, no need to copy the code below */
+/* .grid-container * {
+    border: 1px solid red;
+    position: relative;
+} */
+
+/* .grid-container *:after {
+    content: attr(class);
+    position: absolute;
+    top: 0;
+    left: 0;
+} */

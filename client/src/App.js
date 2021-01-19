@@ -3,6 +3,7 @@ import Login from "./Login";
 import Logout from "./Logout";
 import Register from "./Register";
 import Home from "./Home";
+import Dashboard from "./Dashboard";
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 class App extends React.Component {
@@ -15,6 +16,9 @@ class App extends React.Component {
           </Route>
           <Route path="/register">
             <Register />
+          </Route>
+          <Route path="/dashboard">
+            <Dashboard />
           </Route>
           <Route path="/logout">
             <Logout />

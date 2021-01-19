@@ -1,0 +1,8 @@
+.Header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:"Padding Padding Padding Padding Search Profile";
+    grid-area: 1 / 1 / 2 / 8;
+}
