@@ -5,16 +5,39 @@ import SleepIcon from "./icons/sleep.svg";
 import GratefulnessIcon from "./icons/gratefulness.svg";
 import MindfulEatingIcon from "./icons/mindfuleating.svg";
 
+const Container = styled.div`
+  grid-area: 6 / 1 / 9 / 4;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.1fr 0.9fr 0.1fr;
+  grid-template-areas:
+      "WellnessPracticesLabel"
+      "WellnessPracticesWrapper"
+      "LogButtonArea";
+  height: 510px;
+`
+
+const WellnessPracticesLabel = styled.label`
+  grid-area: WellnessPracticesLabel;
+  color: #848496;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 0.05em;
+  margin-top: auto;
+  margin-bottom: auto;
+`;
+
 const WellnessPracticesWrapper = styled.div`
+    grid-area: WellnessPracticesWrapper;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 0.32fr;
+    grid-template-rows: 1fr 1fr;
     gap: 15px 15px;
+    height: 390px;
     grid-template-areas:
         "Movement Sleep"
         "Gratefulness MindfulEating"
-        "LogButtonArea LogButtonArea";
-    grid-area: 8 / 2 / 10 / 6;
 `;
 
 const MovementPanel = styled.div`
@@ -27,6 +50,7 @@ const MovementPanel = styled.div`
   grid-area: Movement;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
   border-radius: 10px;
+  height: 170px;
 `;
 
 const MovementIconPanel = styled.div`
@@ -46,6 +70,7 @@ const SleepPanel = styled.div`
     grid-area: Sleep;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);  
   border-radius: 10px;
+  height: 170px;
 `;
 
 const SleepIconPanel = styled.div`
@@ -65,6 +90,7 @@ const GratefulnessPanel = styled.div`
   grid-area: Gratefulness;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
   border-radius: 10px;
+  height: 170px;
 `;
 
 const GratefulnessIconPanel = styled.div`
@@ -84,6 +110,7 @@ const MindfulEatingPanel = styled.div`
   grid-area: MindfulEating;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
   border-radius: 10px;
+  height: 170px;
 `;
 
 const MindfulEatingIconPanel = styled.div`
@@ -96,7 +123,7 @@ const MindfulEatingIconPanel = styled.div`
 const LogButtonArea = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 0.5fr 1.35fr;
+  grid-template-rows: 0.5fr 1fr;
   gap: 0px 0px;
   grid-template-areas:
       "."
@@ -123,14 +150,17 @@ const LogButton = styled.button`
   padding-right: 70px;
   font-weight: 500;
   font-size: 14px;
-  line-height: 18px;
+  line-height: 24px;
   align-items: center;
   text-align: center;
   border: none;
+  margin-bottom: 15px;
 `;
 
 function WellnessPracticesPanel() {
     return (
+      <Container>
+        <WellnessPracticesLabel>Your Wellness Practices</WellnessPracticesLabel>
         <WellnessPracticesWrapper>
             <MovementPanel>
                 <MovementIconPanel>
@@ -153,12 +183,13 @@ function WellnessPracticesPanel() {
                     <img src={MindfulEatingIcon} alt="Mindful eating" style={{ height: `100%`, 'object-fit': `contain`, 'padding-top': '8px', 'padding-bottom': '8px'}} />
                 </MindfulEatingIconPanel>
             </MindfulEatingPanel>
-            <LogButtonArea>
+        </WellnessPracticesWrapper>
+        <LogButtonArea>
                 <LogButtonPanel>
                     <LogButton>Log Your Wellness Practices</LogButton>
                 </LogButtonPanel>
             </LogButtonArea>
-        </WellnessPracticesWrapper>
+      </Container>
     )
 }
 

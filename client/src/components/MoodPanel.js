@@ -14,7 +14,7 @@ const MoodPanelWrapper = styled.div`
     gap: 0px 0px;
     grid-template-areas:
         "HappyPanel ExcitedPanel AnxiousPanel TiredPanel UpsetPanel GratefulPanel";
-    grid-area: 5 / 2 / 6 / 8;
+    grid-area: 4 / 1 / 5 / 8;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
     border-radius: 10px;
 `;
@@ -31,8 +31,8 @@ const HappyPanel = styled.div`
     grid-area: HappyPanel;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 62px;
-    padding-right: 62px;
+    padding-left: 24px;
+    padding-right: 24px;
     padding-top: 10px;
 `;
 
@@ -49,8 +49,8 @@ const ExcitedPanel = styled.div`
     align-items: center;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 62px;
-    padding-right: 62px;
+    padding-left: 24px;
+    padding-right: 24px;
     padding-top: 10px;
 `;
 
@@ -66,8 +66,8 @@ const AnxiousPanel = styled.div`
     grid-area: AnxiousPanel;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 62px;
-    padding-right: 62px;
+    padding-left: 24px;
+    padding-right: 24px;
     padding-top: 10px;
 `;
 
@@ -83,8 +83,8 @@ const TiredPanel = styled.div`
     grid-area: TiredPanel;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 62px;
-    padding-right: 62px;
+    padding-left: 24px;
+    padding-right: 24px;
     padding-top: 10px;
 `;
 
@@ -100,8 +100,8 @@ const UpsetPanel = styled.div`
     grid-area: UpsetPanel;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 62px;
-    padding-right: 62px;
+    padding-left: 24px;
+    padding-right: 24px;
     padding-top: 10px;
 `;
 
@@ -117,8 +117,8 @@ const GratefulPanel = styled.div`
     grid-area: GratefulPanel;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 62px;
-    padding-right: 62px;
+    padding-left: 24px;
+    padding-right: 24px;
     padding-top: 10px;
 `;
 
