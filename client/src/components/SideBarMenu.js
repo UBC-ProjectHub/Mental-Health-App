@@ -14,32 +14,38 @@ class SideBarMenu extends React.Component {
         <div className="menu-item1">
           <p className="menu-item-label">
             <img src={Dashboard} alt="Dashboard" className="menu-icon" />
-              Dashboard</p>
+            <a href ="/dashboard">Dashboard</a>
+          </p>
         </div>
         <div className="menu-item2">
           <p className="menu-item-label">
             <img src={Logging} alt="Logging" className="menu-icon" />
-            Logging </p>
+            <a href ="/dashboard">Logging</a> 
+          </p>
         </div>
         <div className="menu-item3">
           <p className="menu-item-label">
             <img src={WellnessPractices} alt="Wellness Practices" className="menu-icon" />
-            Wellness Practices </p>
+            <a href ="/dashboard">Wellness Practices</a> 
+          </p>
         </div>
         <div className="menu-item4">
           <p className="menu-item-label">
             <img src={Trends} alt="Trends" className="menu-icon" />
-            Trends </p>
+            <a href ="/dashboard">Trends</a> 
+          </p>
         </div>
         <div className="menu-item5">
           <p className="menu-item-label">
             <img src={Progress} alt="Progress" className="menu-icon" />
-            Progress </p>
+            <a href ="/dashboard">Progress</a> 
+          </p>
         </div>
         <div className="menu-item6">
           <p className="menu-item-label">
             <img src={SettingsIcon} alt="Settings" className="menu-icon" />
-            Settings </p>
+            <a href ="/dashboard">Settings</a> 
+          </p>
         </div>
       </div>
         )

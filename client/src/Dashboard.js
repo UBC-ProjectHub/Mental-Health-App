@@ -13,7 +13,7 @@ const LabelPanel = styled.div`
   gap: 0px 0px;
   grid-template-areas:
       "WPLabel TrackingLabel";
-  grid-area: 7 / 2 / 8 / 8;
+  grid-area: 7 / 2 / 8 / 8; 
 `;
 
 const WellnessPracticesLabel = styled.label`

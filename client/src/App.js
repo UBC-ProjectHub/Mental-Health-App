@@ -6,6 +6,7 @@ import Home from "./Home";
 import Dashboard from "./Dashboard";
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+
 class App extends React.Component {
   render() {
     return (

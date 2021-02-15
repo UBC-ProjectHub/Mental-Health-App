@@ -82,9 +82,14 @@ class DashBoardHeader extends React.Component {
                                 size="sm"
                                 variant="secondary"
                                 background-colour='white'
+                                title='dropdown'
                             >
-                                <Dropdown.Item eventKey="1">Log Out</Dropdown.Item>
-                                <Dropdown.Item eventKey="2">Settings</Dropdown.Item>
+                                <Dropdown.Item eventKey="1">
+                                    <a href="/login">Log Out</a>
+                                </Dropdown.Item>
+                                <Dropdown.Item eventKey="2">
+                                    <a href="/dashboard">Settings</a>
+                                </Dropdown.Item>
                             </DropdownType>
                         ))}
                     </div>
