@@ -5,6 +5,7 @@ import SearchIcon from "./icons/searchicon.svg";
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
+import SelectDropdown from "./SelectDropdown";
 
 const ProfileBar = styled.div`
 display: grid;
@@ -48,31 +49,40 @@ height: 1.6em;
 border: none;
 `;
 
-class DashBoardHeader extends React.Component {
+const StyledHeader = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:"Padding Padding Padding Padding Search Profile";
+    grid-area: 1 / 1 / 2 / 3;
+`;
+
+class Header extends React.Component {
     render() {
         return (
-            <div class="Header">
-                <div class="Padding"></div>
-                <div class="Padding"></div>
-                <div class="Padding"></div>
-                <div class="Padding"></div>
+            <StyledHeader>
+                <div className="Padding"></div>
+                <div className="Padding"></div>
+                <div className="Padding"></div>
+                <div className="Padding"></div>
                 <SearchWrapper>
                     <img src={SearchIcon} style={{
-                        'grid-area': 'Icon', height: '55%',
-                        'margin-top': '6px',
-                        'margin-left': '5px', 'padding-left': '3px'
+                        'gridArea': 'Icon', height: '55%',
+                        'marginTop': '6px',
+                        'marginLeft': '5px', 'paddingLeft': '3px'
                     }} />
                     <SearchBar />
                 </SearchWrapper>
                 <ProfileBar>
                     <img src={ProfilePic} style={{
-                        'margin-top': 'auto',
-                        'margin-bottom': 'auto'
+                        'marginTop': 'auto',
+                        'marginBottom': 'auto'
                     }} />
                     <ProfileName>Emily Andrews</ProfileName>
                     <div style={{
-                        'grid-area': 'DropDownButton',
-                        'margin-top': 'auto', 'margin-bottom': 'auto'
+                        'gridArea': 'DropDownButton',
+                        'marginTop': 'auto', 'marginBottom': 'auto'
                     }}>
                         {[DropdownButton].map((DropdownType, idx) => (
                             <DropdownType
@@ -89,9 +99,9 @@ class DashBoardHeader extends React.Component {
                         ))}
                     </div>
                 </ProfileBar>
-            </div>
+            </StyledHeader>
         )
     }
 }
 
-export default DashBoardHeader
+export default Header

@@ -5,16 +5,37 @@ import SleepIcon from "./icons/sleep.svg";
 import GratefulnessIcon from "./icons/gratefulness.svg";
 import MindfulEatingIcon from "./icons/mindfuleating.svg";
 
+const Container = styled.div`
+  grid-area: 6 / 1 / 9 / 4;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.2fr 1fr 0.14fr;
+  grid-template-areas:
+      "WellnessPracticesLabel"
+      "WellnessPracticesWrapper"
+      "LogButtonArea";
+`
+
+const WellnessPracticesLabel = styled.label`
+  grid-area: WellnessPracticesLabel;
+  color: #848496;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 0.05em;
+  margin-top: auto;
+  margin-bottom: auto;
+`;
+
 const WellnessPracticesWrapper = styled.div`
+    grid-area: WellnessPracticesWrapper;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 0.32fr;
+    grid-template-rows: 1fr 1fr;
     gap: 15px 15px;
     grid-template-areas:
         "Movement Sleep"
         "Gratefulness MindfulEating"
-        "LogButtonArea LogButtonArea";
-    grid-area: 8 / 2 / 10 / 6;
 `;
 
 const MovementPanel = styled.div`
@@ -131,6 +152,8 @@ const LogButton = styled.button`
 
 function WellnessPracticesPanel() {
     return (
+      <Container>
+        <WellnessPracticesLabel>Your Wellness Practices</WellnessPracticesLabel>
         <WellnessPracticesWrapper>
             <MovementPanel>
                 <MovementIconPanel>
@@ -153,12 +176,13 @@ function WellnessPracticesPanel() {
                     <img src={MindfulEatingIcon} alt="Mindful eating" style={{ height: `100%`, 'object-fit': `contain`, 'padding-top': '8px', 'padding-bottom': '8px'}} />
                 </MindfulEatingIconPanel>
             </MindfulEatingPanel>
-            <LogButtonArea>
+        </WellnessPracticesWrapper>
+        <LogButtonArea>
                 <LogButtonPanel>
                     <LogButton>Log Your Wellness Practices</LogButton>
                 </LogButtonPanel>
             </LogButtonArea>
-        </WellnessPracticesWrapper>
+      </Container>
     )
 }
 

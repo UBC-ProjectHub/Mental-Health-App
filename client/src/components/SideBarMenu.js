@@ -10,7 +10,7 @@ import "./SideBarMenu.css";
 class SideBarMenu extends React.Component {
   render() {
     return (
-      <div class="SideBarMenu">
+      <div className="SideBarMenu">
         <div className="menu-item1">
           <p className="menu-item-label">
             <img src={Dashboard} alt="Dashboard" className="menu-icon" />
