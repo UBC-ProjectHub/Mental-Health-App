@@ -7,6 +7,7 @@ import Dashboard from "./components/Dashboard";
 import Landing from "./Landing";
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Progress from "./Progress";
 
 class App extends React.Component {
   render() {
@@ -24,6 +25,9 @@ class App extends React.Component {
           </Route>
           <Route path="/dashboard">
             <Dashboard />
+          </Route>
+          <Route path="/progress">
+            <Progress />
           </Route>
           <Route path="/logout">
             <Logout />

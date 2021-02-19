@@ -14,42 +14,46 @@ class SideBarMenu extends React.Component {
         <div className="menu-item1">
           <p className="menu-item-label">
             <img src={Dashboard} alt="Dashboard" className="menu-icon" />
-            <a href ="/landing">Dashboard</a>
+            <a href="/landing">Dashboard</a>
           </p>
         </div>
         <div className="menu-item2">
           <p className="menu-item-label">
             <img src={Logging} alt="Logging" className="menu-icon" />
-            <a href ="/landing">Logging</a> 
+            <a href="/landing">Logging</a>
           </p>
         </div>
         <div className="menu-item3">
           <p className="menu-item-label">
-            <img src={WellnessPractices} alt="Wellness Practices" className="menu-icon" />
-            <a href ="/landing/goals">Wellness Practices</a> 
+            <img
+              src={WellnessPractices}
+              alt="Wellness Practices"
+              className="menu-icon"
+            />
+            <a href="/landing/goals">Wellness Practices</a>
           </p>
         </div>
         <div className="menu-item4">
           <p className="menu-item-label">
             <img src={Trends} alt="Trends" className="menu-icon" />
-            <a href ="/landing">Trends</a> 
+            <a href="/landing">Trends</a>
           </p>
         </div>
         <div className="menu-item5">
           <p className="menu-item-label">
             <img src={Progress} alt="Progress" className="menu-icon" />
-            <a href ="/landing">Progress</a> 
+            <a href="/landing">Progress</a>
           </p>
         </div>
         <div className="menu-item6">
           <p className="menu-item-label">
             <img src={SettingsIcon} alt="Settings" className="menu-icon" />
-            <a href ="/landing">Settings</a> 
+            <a href="/landing">Settings</a>
           </p>
         </div>
       </div>
-        )
-    }
+    );
+  }
 }
 
 export default SideBarMenu;
