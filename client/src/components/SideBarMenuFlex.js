@@ -80,7 +80,7 @@ class SideBarMenuFlex extends React.Component {
         <SideBarMenuContainer>
           <MenuItem>
             <MenuImage src={images.dashboard}></MenuImage>
-            <MenuButton> Dashboard </MenuButton>
+            <MenuButton>Dashboard</MenuButton>
           </MenuItem>
           <MenuItem>
             <MenuImage src={images.logging}></MenuImage>
