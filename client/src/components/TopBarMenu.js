@@ -3,7 +3,6 @@ import React from "react";
 import { Route, withRouter } from "react-router-dom";
 
 const TopBarContainer = styled.div`
-  height: 68px;
   padding: 10px;
   display: flex;
   flex-direction: row;

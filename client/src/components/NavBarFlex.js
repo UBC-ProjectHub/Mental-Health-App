@@ -2,18 +2,18 @@ import styled from "styled-components";
 import React from "react";
 import { Route, withRouter } from "react-router-dom";
 import images from "./images";
+import PageTitle from "./PageTitle";
 
 //Child of Panel Column
 //Parent of NavBarContainder
 const HeaderContainer = styled.div`
-  height: 150px;
   width: 100%;
   background-color: transparent;
+  box-sizing: border-box;
 `;
 
 //Child of Header Container
 const NavBarContainer = styled.div`
-  height: 68px;
   padding: 10px;
   display: flex;
   justify-content: flex-end;
@@ -88,6 +88,7 @@ class NavBarFlex extends React.Component {
             <option>Log Out</option>
           </UserProfileDropdown>
         </NavBarContainer>
+        <PageTitle></PageTitle>
         {this.props.children}
       </HeaderContainer>
     );
